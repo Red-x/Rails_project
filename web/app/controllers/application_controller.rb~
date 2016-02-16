@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 private
 def  confirmauthorized
 unless session[:user_id]
-redirect_to(:controller=>'users',:action=>'login')
+redirect_to(:action=>'login')
 return false
 else
 return true
