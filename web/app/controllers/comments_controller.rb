@@ -1,15 +1,15 @@
 class CommentsController < ApplicationController
 
 def index
-	@comments = comment.all
+	@comments=Comment.all
 end
 
 def new
-	@comments = comment.new
+	@comments=Comment.new
 end
 
 def create
-	@comments = comment.new(comment_params)
+	@comments=Comment.new(comment_params)
 	if @comments.save
 	redirect_to '/comments'
 	else

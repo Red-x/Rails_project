@@ -5,3 +5,4 @@
 #
 #  users = users.create( username: 'admin', password: 'cse2017', email: 'admin@rails.dev', year:'3')
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+c1 = Comment.create(content: "first comment")

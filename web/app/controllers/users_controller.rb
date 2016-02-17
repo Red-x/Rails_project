@@ -9,9 +9,11 @@ before_action :confirmauthorized, :except => [:login, :attempt_login, :logout, :
   end
 
   def signup
-  @users = user.new
+  @users=User.new
+  if params[:username].present?&&params[:pasword].present?
+  @user.username = [:username]
   end
-
+ end
  
   def logout
 	flash[:notice]="Logged out"
