@@ -8,11 +8,18 @@ before_action :confirmauthorized, :except => [:login, :attempt_login, :logout, :
 
   end
 
+  def new
+    @user = User.new
+  end
+
   def signup
-  if params[:username].present?&&params[:password].present?
-  @user.username = [:username]
-  @user.password = [:password]
-  User.new = @users
+      @user = User.new(user_params)
+    if @user.save
+            redirect_to @user
+
+    else
+      render 'new'
+    end
   end
 
  end
@@ -41,5 +48,10 @@ before_action :confirmauthorized, :except => [:login, :attempt_login, :logout, :
 	redirect_to(:action=>'login')
 	end
   end
+private
 
+    def user_params
+      params.require(:user).permit(:name, :email, :password,
+                                   :password_confirmation)
+   
 end
