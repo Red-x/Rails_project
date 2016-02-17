@@ -3,5 +3,5 @@
 #
 # Examples:
 #
-#  users = users.create( username: 'admin', password: 'cse2017', email: 'admin@rails.dev', year:'3')
+  users = users.create( username: 'admin', password: 'cse2017', email: 'admin@rails.dev', year:'3')
 #   Mayor.create(name: 'Emanuel', city: cities.first)

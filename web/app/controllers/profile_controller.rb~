@@ -1,0 +1,26 @@
+class ProfileController < ApplicationController
+
+def new 
+@user = user.new
+redirect_to(:controller=>profile , :action=>'login')
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end

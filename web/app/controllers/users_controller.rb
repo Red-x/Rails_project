@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 layout 'admin'
-before_action :confirmauthorized, :except => [:login, :attempt_login, :logout]
+before_action :confirmauthorized, :except => [:login, :attempt_login, :logout, :signup]
   def index
   end
 
@@ -8,6 +8,11 @@ before_action :confirmauthorized, :except => [:login, :attempt_login, :logout]
 
   end
 
+  def signup
+
+  end
+
+ 
   def logout
 	flash[:notice]="Logged out"
 	redirect_to(:action=>'login')

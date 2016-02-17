@@ -1,0 +1,2 @@
+<div class="comments"><div class="container">
+<% @comments.each do %>Find me in app/views/comments/index.html.erb</p>
