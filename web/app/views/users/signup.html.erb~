@@ -5,9 +5,9 @@
 
 <div class="row">
   <div class="table">
-    <%= form_for User.new do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+    <%= form_for (user, :url => {:controller=> 'users', :action => 'signup'}) do |f| %>
+      
+      <%= render (partial:"form",locals: {f:f} %>
 
       <%= f.label :username %>
       <%= f.text_field :username %>
@@ -21,7 +21,7 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation %>
 
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
+      <%= submit_tag("Create my account") %>
     <% end %>
   </div>
 </div>
