@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 layout 'admin'
-before_action :confirmauthorized, :except => [:login, :attempt_login, :logout]
+before_action :confirmauthorized, :except => [:login, :attempt_login, :logout, :signup]
   def index
   end
 
@@ -9,7 +9,7 @@ before_action :confirmauthorized, :except => [:login, :attempt_login, :logout]
   end
 
   def signup
-
+  @users = user.new
   end
 
  

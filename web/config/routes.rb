@@ -3,11 +3,12 @@ Rails.application.routes.draw do
  get 'user', :to => 'users#index'
  root "users#login"
  match ':controller(/:action(/:id))', via:  [:get,:post]
- get 'users/signup', :to => 'profile#new'
+ get 'signup', :to => 'profile#new'
  resources :users
+ get 'users/signup', :to => 'users#signup'
  get '/comments' => 'comments#index'
  get '/comments/new' => 'comments#new'
- post 'comments', => 'comments#create'
+ post 'comments' => 'comments#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

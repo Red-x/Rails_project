@@ -9,7 +9,7 @@ before_action :confirmauthorized, :except => [:login, :attempt_login, :logout, :
   end
 
   def signup
-
+  @users = user.new
   end
 
  
