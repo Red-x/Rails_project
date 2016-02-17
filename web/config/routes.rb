@@ -7,7 +7,7 @@ Rails.application.routes.draw do
  resources :users
  get 'users/signup', :to => 'users#signup'
  get '/comments' => 'comments#index'
- get '/comments/new' => 'comments#new'
+ get '/comments/comments/new' => 'comments#new'
  post 'comments' => 'comments#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
