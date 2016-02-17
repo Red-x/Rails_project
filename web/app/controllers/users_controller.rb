@@ -9,10 +9,12 @@ before_action :confirmauthorized, :except => [:login, :attempt_login, :logout, :
   end
 
   def signup
-  @users=User.new
-  if params[:username].present?&&params[:pasword].present?
+  if params[:username].present?&&params[:password].present?
   @user.username = [:username]
+  @user.password = [:password]
+  User.new = @users
   end
+
  end
  
   def logout
@@ -23,7 +25,7 @@ before_action :confirmauthorized, :except => [:login, :attempt_login, :logout, :
   end
 
   def attempt_login
-	if params[:username].present?&&params[:pasword].present?
+	if params[:username].present?&&params[:password].present?
 	found_user=User.where(:username=>params[:username]).first
 	if found_user
 		authorized_user=found_user.authenticate(params[:password])
