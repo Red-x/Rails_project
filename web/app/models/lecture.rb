@@ -1,8 +1,7 @@
 class Lecture < ActiveRecord::Base
-	User has_many :commets
-	User has_many :likes
-	User has_many :lecutes
-	Lecture belongs_to :user
-
+	 has_many :comments
+	 has_many :likes
+	 belongs_to :user
+     has_many :slides
 
 end
