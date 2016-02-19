@@ -8,5 +8,8 @@ class Lecture < ActiveRecord::Base
 =======
 	User has_many :commets
 	User has_many :likes
+<<<<<<< HEAD
+>>>>>>> parent of 0bda2cb... full dataase
+=======
 >>>>>>> parent of 0bda2cb... full dataase
 end
