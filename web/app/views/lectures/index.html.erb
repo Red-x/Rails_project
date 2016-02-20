@@ -1,7 +1,7 @@
  <div class="lectures index">
   <h2>Lectures</h2>
 
-  <%= link_to("Add New Lecture", {:action => 'new'}, :class => 'action new') %>
+  <%= link_to("Add New Lecture", {:controller => 'resumes'} , {:action => 'create'}) %>
 
   <table class="listing" summary="Lecture list">
     <tr class="header">

@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
+root"access#login"
+get 'admin', :to=>"access#index"
+  
   Web::Application.routes.draw do
+  #get 'access/index'
+
+  #get 'access/login'
+
+  #get 'slides/index'
+
+  #get 'slides/show'
+
   resources :resumes, only: [:index, :new, :create, :destroy]
-  root "resumes#index"
+  #root "resumes#index"
 end
 #root 'welcome#index'
 match ':controller(/:action(/:id))' , :via => [:get , :post]

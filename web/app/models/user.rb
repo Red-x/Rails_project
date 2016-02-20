@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-	User has_many :comments
-	User has_many :likes
-	User has_many :lectures
+	
+	has_secure_password
+	 has_many :comments
+	 has_many :likes
+	 has_many :lectures
 end

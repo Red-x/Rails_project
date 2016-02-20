@@ -1,0 +1,24 @@
+ <div class="slides index">
+  <h2>Slides</h2>
+
+  <table class="listing" summary="Slide list">
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th>Slide</th>
+      <th>Actions</th>
+    </tr>
+    <% @slides.each do |slide| %>
+    <tr>
+      <td><%= slide.id %></td>
+      <td><%= slide.attachemnet %></td>
+      <td class="actions">
+        <%= link_to("Show",{:action => 'show', :id => slide.id} , :class => 'action show') %>
+        </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
+
+
+ 

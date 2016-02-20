@@ -1,0 +1,25 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="slides show">
+  <h2>Show Slide</h2>
+
+  <table summary="Slide detail view">
+    <tr>
+      <th>id</th>
+      <td><%= @slide.id %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @slide.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @slide.updated_at %></td>
+    </tr>
+    <tr>
+      <th>Content</th>
+      <td><%= @slide.attachemnet %></td>
+    </tr>
+  </table>
+
+</div>
