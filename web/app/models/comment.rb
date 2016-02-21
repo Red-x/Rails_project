@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-	Comment belongs_to :user
-	Comment belongs_to :lecture
-	Comment belongs_to :slide
+	 belongs_to :user
+	 belongs_to :lecture
+	 belongs_to :slide
 end

@@ -1,5 +1,5 @@
 class Like < ActiveRecord::Base
-	Like belongs_to :user 
-	Like belongs_to :lecture
-	Like belongs_to :slide
+	 belongs_to :user 
+	 belongs_to :lecture
+	 belongs_to :slide
 end

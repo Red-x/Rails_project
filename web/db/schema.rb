@@ -11,49 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220045018) do
-
-  create_table "comments", force: :cascade do |t|
-    t.string   "content",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "lectures", force: :cascade do |t|
-    t.string   "Title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "lectures", ["id"], name: "index_lectures_on_id"
-
-  create_table "likes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "resumes", force: :cascade do |t|
-    t.string   "name"
-    t.string   "attachment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "slides", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "attachemnet"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "first_name",      limit: 25
-    t.string   "last_name",       limit: 25
-    t.string   "email"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.string   "password_digest"
-  end
-
-  add_index "users", ["id"], name: "index_users_on_id"
+ActiveRecord::Schema.define(version: 20160221025139) do
 
 end

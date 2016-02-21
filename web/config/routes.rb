@@ -1,8 +1,19 @@
 Rails.application.routes.draw do
-root"access#login"
-get 'admin', :to=>"access#index"
-  
-  Web::Application.routes.draw do
+match ':controller(/:action(/:id))' , :via => [:get , :post]
+get "log_out" => "sessions#destroy" , :as => "log_out"
+get"log_in" =>"sessions#new" , :as => "log_in"
+get "sign_up" => "users#new" , :as => "sign_up"
+root :to => "users#new"
+resources :users
+resources :sessions
+#root"access#login"
+#get 'admin', :to=>"access#index"
+  match ':controller(/:action(/:id))' , :via => [:get , :post]
+ # Web::Application.routes.draw do
+  #get 'sessions/new'
+
+ # get 'users/new'
+
   #get 'access/index'
 
   #get 'access/login'
@@ -11,11 +22,11 @@ get 'admin', :to=>"access#index"
 
   #get 'slides/show'
 
-  resources :resumes, only: [:index, :new, :create, :destroy]
+  #resources :resumes, only: [:index, :new, :create, :destroy]
   #root "resumes#index"
-end
+#end
 #root 'welcome#index'
-match ':controller(/:action(/:id))' , :via => [:get , :post]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
