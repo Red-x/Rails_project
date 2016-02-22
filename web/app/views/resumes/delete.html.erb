@@ -2,7 +2,7 @@
 
 <div class="resume delete">
   <h2>Delete resume</h2>
-
+<%if ((session[:user_id])==(@resume.user_id)) %>
   <%= form_for(:resume , :url => {:action => 'destroy', :id => @resume.id } ) do |f| %>
 
     <p>Are you sure you want to permanently delete this resume?</p>
@@ -11,7 +11,13 @@
 
     <div class="form-buttons">
       <%= submit_tag("Delete resume") %>
+       
+ <% end %>
+ <% else %>
+    	<h2>you dont have permission to delete this resume</h2>
+
+          <% end %>
     </div>
 
-  <% end %>
+  
 </div>

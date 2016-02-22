@@ -1,4 +1,5 @@
 class ResumesController < ApplicationController
+  before_action :current_user , only: [:index,:new ,:create,:destroy,:delete]
   def index
     @resumes = Resume.all
   end
@@ -36,6 +37,15 @@ class ResumesController < ApplicationController
 
 private
   def resume_params
-    params.require(:resume).permit(:name, :attachment)
+    params.require(:resume).permit(:name, :attachment,:user_id)
   end
+  
+
+def current_user
+  @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  if @current_user.blank? 
+    redirect_to root_url, :notice => "Sign in!"
+  end
+end
+
 end

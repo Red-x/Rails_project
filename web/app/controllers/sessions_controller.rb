@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
 
-
+#before_action :current_user , only: [:index,:create ,:destroy]
 def new
 end
+ 
 
 def create
   user = User.authenticate(params[:email], params[:password])
@@ -21,4 +22,6 @@ def destroy
   #redirect_to root_url, :notice => "Logged out!"
   redirect_to(:controller=>'resumes' , :action =>'new')
 end
+
+
 end

@@ -22,7 +22,11 @@
         <td><%= resume.name %></td>
         <td><%= link_to "Download Resume", resume.attachment_url %></td>
         <td><%= link_to "Show", {:action => 'show',:id => resume.id } %></td>
-        <td><%= button_to "Delete",  {:action => 'delete',:id => resume.id }, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.name}?" %></td>
+          
+        <%if ((session[:user_id])==(resume.user_id)) %>
+        <th><td><%= button_to "Delete",  {:action => 'delete',:id => resume.id }, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.name}?" %></td></th>
+          <%else %>
+          <% end %>
       </tr>
     <% end %>
   </tbody>

@@ -1,5 +1,7 @@
 class SlidesController < ApplicationController
  layout false
+ before_action :current_user , only: [:index,:new ,:show]
+
   def index
    @slides = Slide.all
   end
@@ -35,8 +37,17 @@ class SlidesController < ApplicationController
   end
 
   def show
+    
   @slide =Slide.find(params[:id])
   @users=User.all
 
   end
+  private
+
+def current_user
+  @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  if @current_user.blank? 
+    redirect_to root_url, :notice => "Sign in!"
+  end
+end
  end
