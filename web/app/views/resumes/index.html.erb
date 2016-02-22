@@ -21,6 +21,7 @@
       <tr>
         <td><%= resume.name %></td>
         <td><%= link_to "Download Resume", resume.attachment_url %></td>
+        <td><%= link_to "Show", {:action => 'show',:id => resume.id } %></td>
         <td><%= button_to "Delete",  {:action => 'delete',:id => resume.id }, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.name}?" %></td>
       </tr>
     <% end %>

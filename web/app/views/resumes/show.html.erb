@@ -1,0 +1,33 @@
+<% if !flash[:notice].blank? %>
+  <div class="alert alert-info">
+  <%= flash[:notice] %>
+  </div>
+<% end %>
+<br />
+#<%= link_to "back",  {:action => 'index'}, class: "btn btn-primary" %>
+
+ <div class="slides index">
+  <h2>Slides</h2>
+
+  <table class="listing" summary="Slide list">
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th>Slide</th>
+      <th>Actions</th>
+      <th>preview</th>
+    </tr>
+    <% @resume.slides.each do |slide| %>
+    <tr>
+      <td><%= slide.id %></td>
+      <td><%= slide.name %></td>
+      <td class="actions">
+        <%= link_to("Show",{:controller=>'slides',:action => 'show', :id => slide.id} , :class => 'action show') %></td>
+        <td><%=image_tag(slide.name,:width => 100, :height => 150)%></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
+
+
+ 

@@ -6,7 +6,7 @@ class SlidesController < ApplicationController
   
   def new
   	@slide
-  	#@lecture = Lecture.find(params[:id])
+
   	@resume = Resume.find(params[:id])
   	
   	#require 'RMagick'
@@ -15,25 +15,28 @@ class SlidesController < ApplicationController
   	#@slide.lecture_id =  resume.id
 	#@slide.save
 	#@slide.attachment=thumb.write "#{@resume.name+resume.id.to_s}+_+#{@slide.id}+.jpg"
+	@attachment = @resume.attachment
 
-	
-      pdf = Grim.reap('public' + @resume.attachment.url)
+      pdf = Grim.reap('public' + @attachment.url)
       @count = pdf.count
       
      for i in 0...@count
-
-      pdf[i].save("app/assets/images/#{@resume.id}.#{i}.jpg", { :height => 1000 })
-      @lecture.slides.create(:attachment=> "#{@resume.id}.#{i}.jpg")
+     	
+      pdf[i].save("app/assets/images/#{@resume.id}.#{i}.png", { :height => 1000 })
+      Resume.find(params[:id]).slides.create(:resume_id=> @resume.id,:name=> "#{@resume.id}.#{i}.png" )
+      
      
       end
 
       redirect_to(:controller=>'resumes' , :action =>'index')
       #redirect_to(:action => 'please_wait')
-      flash[:notice] = "The document #{@resumes.name} has been uploaded."
+      flash[:notice] = "The document #{@resume.name} has been uploaded."
 
   end
 
   def show
   @slide =Slide.find(params[:id])
+  @users=User.all
+
   end
  end

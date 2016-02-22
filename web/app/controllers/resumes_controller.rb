@@ -7,12 +7,17 @@ class ResumesController < ApplicationController
     @resume = Resume.new
   end
 
+  def show
+    @resume = Resume.find(params[:id])
+    
+  end
+
   def create
     @resume = Resume.new(resume_params)
 
     if @resume.save
       #redirect_to(:action =>'index') 
-      redirect_to(:controller=>'lectures' , :action =>'create', :id => @resume.id )
+      redirect_to(:controller=>'slides' , :action =>'new', :id => @resume.id )
     else
       render "new"
     end

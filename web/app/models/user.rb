@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   has_many :comments
   has_many :likes
-  has_many :lectures
+  has_many :resume
    
 
   attr_accessor :password

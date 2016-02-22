@@ -1,4 +1,4 @@
-<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+<%= link_to("<< Back to List", {:controller=>'resumes',:action => 'show',:id => @slide.resume_id }, :class => 'back-link') %>
 
 <div class="slides show">
   <h2>Show Slide</h2>
@@ -18,8 +18,45 @@
     </tr>
     <tr>
       <th>Content</th>
-      <td><%= @slide.attachemnet %></td>
+      <td><%=@slide.name %></td>
     </tr>
   </table>
+  <%=image_tag(@slide.name,:width => 800, :height => 1000)%>
+
+
+</div>
+
+<div class="row">  <br> </div>
+
+  <div class='row comment-form text-center'>
+
+   <% @slide.comments.each do |c| %>
+
+   <th> <%name=User.find(c.user_id)%></th>
+   <th> <%= name.email%></th>:</th>
+   <%= c.content %> 
+   </br>
+   </br>
+   </br>
+   <%end%>
+
+ <%= form_for(:comment , :url => {:controller=>'comments' , action: 'create' ,
+        :id=>@slide.id  }) do |f| %>
+        
+    <table summary="comments">
+  <tr>
+    <%= f.hidden_field :user_id, :value => session[:user_id]%>
+    
+    <td> <%= f.text_area(:content, :size=>'60x5') %></td>
+  </tr>
+  
+   
+</table>
+
+        <div class="form-buttons">
+            <%= submit_tag("comment")%>
+        </div>
+    <% end %>
+</div> 
 
 </div>
