@@ -15,14 +15,26 @@
       <th>Slide</th>
       <th>Actions</th>
       <th>preview</th>
+      <th>press like</th>
+      <th>Likes</th>
     </tr>
+
     <% @resume.slides.each do |slide| %>
     <tr>
+
       <td><%= slide.id %></td>
       <td><%= slide.name %></td>
       <td class="actions">
         <%= link_to("Show",{:controller=>'slides',:action => 'show', :id => slide.id} , :class => 'action show') %></td>
         <td><%=image_tag(slide.name,:width => 100, :height => 150)%></td>
+        <% if (@like.where(:conditions => {:user_id => session[:user_id] }).nil?) %>  
+        <td class="actions">  
+          <%link_to("like",{:controller=>'slides',:action => 'like', :id => slide.id}      , :class => 'action show')       %></td>
+        <%end %>
+
+        
+
+
     </tr>
     <% end %>
   </table>

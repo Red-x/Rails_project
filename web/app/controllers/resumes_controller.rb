@@ -10,6 +10,7 @@ class ResumesController < ApplicationController
 
   def show
     @resume = Resume.find(params[:id])
+    @like= Like.where(:conditions => {:resume_id =>@resume.id})
     
   end
 
